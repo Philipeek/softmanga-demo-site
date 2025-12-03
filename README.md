@@ -69,10 +69,11 @@ softmanga-demo-site/
 
 ## 📦 Install & Run (Demo)
 
-```cd backend
+```
+cd backend
 npm install
 node app.js
-
+```
 ---
 
 ## 📚 Notes
