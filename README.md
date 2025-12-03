@@ -20,16 +20,13 @@ It demonstrates backend architecture, routing structure, database modeling, and 
 
 ## 🏗 Project Structure
 
-softmanga-demo-site/
+```txt softmanga-demo-site/
 │
 ├── backend/
-
 │   ├── app.js                # Express server (demo version)
-
 │   ├── routes/
 │   │    ├── index.js         # Example router
 │   │    └── api.js           # Example REST endpoints
-
 │   ├── controllers/          # Placeholder for controller logic
 │   ├── middlewares/          # Placeholder for middleware examples
 │   └── package.json
@@ -41,7 +38,7 @@ softmanga-demo-site/
 │        └── placeholder.jpg  # Example asset file
 │
 └── database/
-    └── schema.sql            # PostgreSQL table structure example
+    └── schema.sql            # PostgreSQL table structure example ```
 
 ---
 
