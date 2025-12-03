@@ -23,10 +23,13 @@ It demonstrates backend architecture, routing structure, database modeling, and 
 softmanga-demo-site/
 │
 ├── backend/
+
 │   ├── app.js                # Express server (demo version)
+
 │   ├── routes/
 │   │    ├── index.js         # Example router
 │   │    └── api.js           # Example REST endpoints
+
 │   ├── controllers/          # Placeholder for controller logic
 │   ├── middlewares/          # Placeholder for middleware examples
 │   └── package.json
