@@ -1,17 +1,35 @@
-const pool = require("../config/db");
+// backend/models/mangaModel.js
+
+const mockMangas = [
+    {
+        id: 1,
+        title: "Solo Leveling",
+        status: "completed",
+        chapters: 179
+    },
+    {
+        id: 2,
+        title: "Omniscient Reader",
+        status: "ongoing",
+        chapters: 210
+    },
+    {
+        id: 3,
+        title: "Nano Machine",
+        status: "ongoing",
+        chapters: 230
+    }
+];
 
 async function getAllMangas() {
-    const query = `
-        SELECT id, title, status, created_at
-        FROM mangas
-        ORDER BY created_at DESC
-        LIMIT 10
-    `;
+    return mockMangas;
+}
 
-    const { rows } = await pool.query(query);
-    return rows;
+async function getMangaById(id) {
+    return mockMangas.find(m => m.id === Number(id));
 }
 
 module.exports = {
-    getAllMangas
+    getAllMangas,
+    getMangaById
 };
