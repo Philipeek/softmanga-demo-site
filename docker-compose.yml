@@ -3,17 +3,26 @@ version: "3.9"
 services:
   backend:
     build: ./backend
+    container_name: softmanga-backend
+    command: npm run dev
     ports:
       - "3000:3000"
+    env_file:
+      - .env
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
     depends_on:
-      - postgres
+      - db
 
-  postgres:
-    image: postgres:15
+  db:
+    image: postgres:16
+    container_name: softmanga-postgres
+    restart: always
     environment:
-      POSTGRES_USER: demo_user
-      POSTGRES_PASSWORD: demo_password
-      POSTGRES_DB: softmanga_demo
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
     ports:
       - "5432:5432"
     volumes:
