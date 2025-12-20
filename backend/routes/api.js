@@ -10,5 +10,6 @@ router.get("/error-demo", demoController.throwDemoError);
 
 // Demo DB endpoint
 router.get("/mangas", mangaController.listMangas);
+router.get("/mangas/:id", mangaController.getManga);
 
 module.exports = router;
