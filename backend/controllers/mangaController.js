@@ -1,4 +1,4 @@
-const mangaModel = require("../models/mangaModel");
+const mangaService = require("../services/mangaService");
 
 async function listMangas(req, res, next) {
     try {
