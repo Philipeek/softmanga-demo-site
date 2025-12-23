@@ -12,7 +12,11 @@ app.use(express.json());
 app.use(requestLogger);
 
 app.use("/", indexRouter);
-app.use("/api", apiRouter);
+
+const apiV1Routes = require("./routes/v1");
+
+app.use("/api/v1", apiV1Routes);
+
 
 // Global error handler (always last)
 app.use(errorHandler);
