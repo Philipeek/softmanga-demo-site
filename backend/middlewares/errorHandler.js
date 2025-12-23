@@ -1,9 +1,22 @@
-function errorHandler(err, req, res, next) {
-    console.error("Error:", err.message);
+const ApiError = require("../utils/ApiError");
 
-    res.status(500).json({
-        error: "Internal Server Error",
-        message: err.message
+function errorHandler(err, req, res, next) {
+    if (err instanceof ApiError) {
+        return res.status(err.statusCode).json({
+            error: {
+                message: err.message,
+                status: err.statusCode
+            }
+        });
+    }
+
+    console.error("Unhandled error:", err);
+
+    return res.status(500).json({
+        error: {
+            message: "Internal server error",
+            status: 500
+        }
     });
 }
 
