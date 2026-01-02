@@ -1,4 +1,6 @@
 const mangaService = require("../services/mangaService");
+const ApiError = require("../utils/ApiError");
+const { parseIdParam } = require("../utils/validators");
 
 async function listMangas(req, res, next) {
     try {
@@ -11,15 +13,10 @@ async function listMangas(req, res, next) {
 
 async function getManga(req, res, next) {
     try {
-        const { id } = req.params;
+        const id = parseIdParam(req.params.id, "manga id");
+
         const manga = await mangaService.getMangaById(id);
-
-        const ApiError = require("../utils/ApiError");
-
-    if (!manga) {
-        return next(ApiError.notFound("Manga not found"));
-    }
-
+        if (!manga) return next(ApiError.notFound("Manga not found"));
 
         res.json({ data: manga });
     } catch (error) {
